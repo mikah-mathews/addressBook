@@ -61,12 +61,19 @@ function displayContactDetails(addressBookToDisplay) {
   let htmlForContactInfo ="";
   Object.keys(addressBookToDisplay.contacts).forEach(function(key) {
     const contact = addressBookToDisplay.findContact(key);
-    htmlForContactInfo += "<li id=" + contact.id + ">" + contactFirstName + " " + contactLastName + "</li>";
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
   });
-  contactsList.html(htmlForContactInfo);
+  contactList.html(htmlForContactInfo);
 }
 
-$(document).ready(funtion() {
+function attachContactListeners () {
+  $("ul#contacts").on("click", "li", function() {
+    console.log("The id of this <li> is " + this.id + ".");
+  }); 
+}
+
+$(document).ready(function() {
+  attachContactListeners();
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
     const inputtedFirstName = $("input#new-first-name").val();
