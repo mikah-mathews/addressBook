@@ -53,13 +53,32 @@ Contact.prototype.fullName = function() {
 };
 
 
-
-
-
-
+// User Interface Logic
 let addressBook = new AddressBook();
 
-let contact = new Contact("Ada", "Lovelace", "503-555-0100");
-let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
-addressBook.addContact(contact);
-addressBook.addContact(contact2);
+function displayContactDetails(addressBookToDisplay) {
+  let contactList = $("ul#contacts");
+  let htmlForContactInfo ="";
+  Object.keys(addressBookToDisplay.contacts).forEach(function(key) {
+    const contact = addressBookToDisplay.findContact(key);
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contactFirstName + " " + contactLastName + "</li>";
+  });
+  contactsList.html(htmlForContactInfo);
+}
+
+$(document).ready(funtion() {
+  $("form#new-contact").submit(function(event) {
+    event.preventDefault();
+    const inputtedFirstName = $("input#new-first-name").val();
+    const inputtedLastName = $("input#new-last-name").val();
+    const inputtedPhoneNumber = $("input#new-phone-number").val();
+    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+    addressBook.addContact(newContact);
+    displayContactDetails(addressBook);
+  });
+});
+
+// let contact = new Contact("Ada", "Lovelace", "503-555-0100");
+// let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
+// addressBook.addContact(contact);
+// addressBook.addContact(contact2);
