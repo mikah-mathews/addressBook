@@ -53,8 +53,18 @@ Contact.prototype.fullName = function() {
 };
 
 
-
+// User Interface Logic
 let addressBook = new AddressBook();
+
+function displayContactDetails(addressBookToDisplay) {
+  let contactList = $("ul#contacts");
+  let htmlForContactInfo ="";
+  Object.keys(addressBookToDisplay.contacts).forEach(function(key) {
+    const contact = addressBookToDisplay.findContact(key);
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contactFirstName + " " + contactLastName + "</li>";
+  });
+  contactsList.html(htmlForContactInfo);
+}
 
 $(document).ready(funtion() {
   $("form#new-contact").submit(function(event) {

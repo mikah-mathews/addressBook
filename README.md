@@ -23,7 +23,7 @@ from [the curriculum](https://learnhowtoprogram.com) for this project was origin
 
 ## Setup/Installation Requirements
 
-* _Visit the live site at https://mikah-mathews.github.io/addressBook_
+* _Visit the live site at https://mikah-mathews.github.io/addressBsook_
 * _Or clone the repo and open index.html in a browser._
 
 
