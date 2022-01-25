@@ -54,12 +54,21 @@ Contact.prototype.fullName = function() {
 
 
 
-
-
-
 let addressBook = new AddressBook();
 
-let contact = new Contact("Ada", "Lovelace", "503-555-0100");
-let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
-addressBook.addContact(contact);
-addressBook.addContact(contact2);
+$(document).ready(funtion() {
+  $("form#new-contact").submit(function(event) {
+    event.preventDefault();
+    const inputtedFirstName = $("input#new-first-name").val();
+    const inputtedLastName = $("input#new-last-name").val();
+    const inputtedPhoneNumber = $("input#new-phone-number").val();
+    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+    addressBook.addContact(newContact);
+    console.log(addressBook.contacts);
+  });
+});
+
+// let contact = new Contact("Ada", "Lovelace", "503-555-0100");
+// let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
+// addressBook.addContact(contact);
+// addressBook.addContact(contact2);
