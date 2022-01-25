@@ -39,4 +39,4 @@ _For any problems, please file an issue on Github. Pull Requests welcome._
 
 [ISC](https://choosealicense.com/licenses/isc)
 
-Copyright (c) _2022_ _Mikah Mathews_ _Kevin Williams_
+Copyright (c) _2022_ _Mikah Mathews_ and _Kevin Williams_
